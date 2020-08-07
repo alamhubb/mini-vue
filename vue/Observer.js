@@ -22,6 +22,7 @@ export default class Observer {
       enumerable: true,
       configurable: true,
       get() {
+        //只有创建watch时，才收集依赖，只有编译模板时才创建watcher
         Dep.target && dep.addSub(Dep.target)
         return val
       },
